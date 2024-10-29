@@ -5,8 +5,8 @@ import java.util.function.Predicate;
 /**
  * Assorted utilities for searching structures.
  *
- * @author Your Name Here
- * @author Your Name Here
+ * @author Sam Schmidt
+ * @author Jenifer Silva
  * @author Samuel A. Rebelsky (starter code)
  */
 public class SearchUtils {
@@ -18,68 +18,68 @@ public class SearchUtils {
    * Search for val in values, return the index of an instance of val.
    *
    * @param values
-   *   A sorted array of integers
+   *               A sorted array of integers
    * @param val
-   *   An integer we're searching for
+   *               An integer we're searching for
    * @return
-   *   index, an index of val (if one exists)
+   *         index, an index of val (if one exists)
    * @throws Exception
-   *   If there is no i s.t. values[i] == val
+   *                   If there is no i s.t. values[i] == val
    * @pre
-   *   values is sorted in increasing order.  That is, values[i] <
-   *   values[i+1] for all reasonable i.
+   *      values is sorted in increasing order. That is, values[i] <
+   *      values[i+1] for all reasonable i.
    * @post
-   *   values[index] == val
+   *       values[index] == val
    */
   static int iterativeBinarySearch(int[] vals, int i) throws Exception {
-    return 0;   // STUB
+    return 0; // STUB
   } // iterativeBinarySearch
 
   /**
    * Search for val in values, return the index of an instance of val.
    *
    * @param values
-   *   A sorted array of integers
+   *               A sorted array of integers
    * @param val
-   *   An integer we're searching for
+   *               An integer we're searching for
    * @return
-   *   index, an index of val (if one exists)
+   *         index, an index of val (if one exists)
    * @throws Exception
-   *   If there is no i s.t. values[i] == val
+   *                   If there is no i s.t. values[i] == val
    * @pre
-   *   values is sorted in increasing order.  That is, values[i] <
-   *   values[i+1] for all reasonable i.
+   *      values is sorted in increasing order. That is, values[i] <
+   *      values[i+1] for all reasonable i.
    * @post
-   *   values[index] == val
+   *       values[index] == val
    */
   static int recursiveBinarySearch(int[] vals, int i) throws Exception {
-    return 0;   // STUB
+    return 0; // STUB
   } // recursiveBinarySearch
 
   /**
-   * Search for val in a subarray of values, return the index of an 
+   * Search for val in a subarray of values, return the index of an
    * instance of val.
    *
    * @param values
-   *   A sorted array of integers
+   *               A sorted array of integers
    * @param lb
-   *   The lower bound of the area of interest (inclusive)
+   *               The lower bound of the area of interest (inclusive)
    * @param ub
-   *   The upper bound of the area of interest (exclusive)
+   *               The upper bound of the area of interest (exclusive)
    * @param val
-   *   An integer we're searching for
+   *               An integer we're searching for
    * @return
-   *   index, an index of val (if one exists)
+   *         index, an index of val (if one exists)
    * @throws Exception
-   *   If there is no i between lb and ub s.t. values[i] == val
+   *                   If there is no i between lb and ub s.t. values[i] == val
    * @pre
-   *   values is sorted in increasing order.  That is, values[i] <
-   *   values[i+1] for all reasonable i.
+   *      values is sorted in increasing order. That is, values[i] <
+   *      values[i+1] for all reasonable i.
    * @post
-   *   values[index] == val
+   *       values[index] == val
    */
   static int rbsHelper(int[] vals, int lb, int ub, int i) throws Exception {
-    return 0;   // STUB
+    return 0; // STUB
   } // rbsHelper
 
   // +----------------+----------------------------------------------
@@ -102,27 +102,31 @@ public class SearchUtils {
    * @throws Exception
    *   If no matching value is found.
    */
-  public static <T> T search(Iterable<T> values, Predicate<? super T> pred) 
-      throws Exception {
-    throw new Exception("Unimplemented");       // STUB
-  } // search(Iterable<T>, Predicate<? super T>)
+  public static <T> T search(Iterable<T> values, Predicate<? super T> pred) throws Exception { 
+    for(T i: values) {
+      if(pred.test(i)){
+        return i;
+      }
+    }
+      throw new Exception("No value found");    
+    }
 
   /**
    * Search for val in values, return the index of an instance of val.
    *
    * @param values
-   *   A sorted array of integers
+   *               A sorted array of integers
    * @param val
-   *   An integer we're searching for
+   *               An integer we're searching for
    * @return
-   *   index, an index of val (if one exists)
+   *         index, an index of val (if one exists)
    * @throws Exception
-   *   If there is no i s.t. values[i] == val
+   *                   If there is no i s.t. values[i] == val
    * @pre
-   *   values is sorted in increasing order.  That is, values[i] <
-   *   values[i+1] for all reasonable i.
+   *      values is sorted in increasing order. That is, values[i] <
+   *      values[i+1] for all reasonable i.
    * @post
-   *   values[index] == val
+   *       values[index] == val
    */
   public static int binarySearch(int[] vals, int i) throws Exception {
     return 0;

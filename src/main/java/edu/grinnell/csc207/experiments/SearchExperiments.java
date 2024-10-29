@@ -12,8 +12,8 @@ import edu.grinnell.csc207.util.SearchUtils;
 /**
  * Assorted experiments for searching structures.
  *
- * @author Your Name Here
- * @author Your Name Here
+ * @author Sam Schmidt
+ * @author Jenifer Silva
  * @author Samuel A. Rebelsky (starter code)
  */
 public class SearchExperiments {
@@ -34,6 +34,34 @@ public class SearchExperiments {
                        "romeo", "sierra", "tango", "uniform",
                        "victor", "whiskey", "xray", "yankee", "zulu" };
     ArrayList<String> strings = new ArrayList<String>(Arrays.asList(tmp));
+
+      try {
+      String ex1c = SearchUtils.search(strings, (str) -> str.length () < 5);
+      pen.println("The first string of fewer than five letters is " + ex1c);
+    } catch (Exception e) {
+      pen.println("There are no strings of fewer than five letters.");
+    } // try/catch
+
+    try {
+      String ex1g = SearchUtils.search(strings, (s) -> s.length() == 6);
+      pen.println("The first string of exactly six letters is " + ex1g);
+    } catch (Exception e) {
+      pen.println("There are no strings of exactly six letters.");
+    } // try/catch
+
+    try {
+      String ex1g = SearchUtils.search(strings, (s) -> s.contains("u"));
+      pen.println("The first string that contains the letter u " + ex1g);
+    } catch (Exception e) {
+      pen.println("There are no strings containing letter u.");
+    } // try/catch
+
+    // try {
+    //   String ex1g = SearchUtils.search(tmp, (s) -> s.contains("u"));
+    //   pen.println("The first string that contains the letter u " + ex1g);
+    // } catch (Exception e) {
+    //   pen.println("There are no strings containing letter u.");
+    // } // try/catch
 
     pen.close();
   } // main(String[])
