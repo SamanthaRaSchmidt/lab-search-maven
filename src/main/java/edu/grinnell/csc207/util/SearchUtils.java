@@ -54,9 +54,8 @@ public class SearchUtils {
    */
   static int recursiveBinarySearch(int[] vals, int i) throws Exception {
     int lb = 0;
-    int ub = vals.length -1;
-    rbsHelper(vals, lb, ub, i);
-    return 0; // STUB
+    int ub = vals.length - 1;
+    return rbsHelper(vals, lb, ub, i);
   } // recursiveBinarySearch
 
   /**
@@ -83,20 +82,26 @@ public class SearchUtils {
    */
   static int rbsHelper(int[] vals, int lb, int ub, int i) throws Exception {
     int mid = ((lb + ub) / 2);
+
     if( lb > ub){
-      throw new Exception(" Lower bound can't be bigger than upper bouond");
-    }
-    if(vals[mid] == i){
+      throw new Exception(" Lower bound can't be bigger than upper bound");
+    } //endif
+
+    if (vals[mid] == i) {
       return mid;
-    }
-    else if(vals[mid] > i){
-      rbsHelper(vals, lb, mid + 1, i);
-    }
-    else if (vals[mid] < i){
-      rbsHelper(vals, mid - 1, ub, i);
+    } else if (vals[mid] > i) {
+      if (ub == lb) {
+        throw new Exception("Value not found");
+      } else {
+        return rbsHelper(vals, lb, mid, i);
+      } //endif
     } else {
-      throw new Exception("Value not found");
-    }
+      if (mid + 1 >= vals.length) {
+        throw new Exception("Value not found");
+      } else {
+      return rbsHelper(vals, mid + 1, ub, i);
+      } //endif
+    } //endif
   } // rbsHelper
 
   // +----------------+----------------------------------------------
