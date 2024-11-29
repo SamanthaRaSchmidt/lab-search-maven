@@ -32,7 +32,21 @@ public class SearchUtils {
    *       values[index] == val
    */
   static int iterativeBinarySearch(int[] vals, int i) throws Exception {
-    return 0; // STUB
+    int lb = 0;
+    int ub = vals.length;
+
+    while (lb < ub) {
+      int mid = lb + (ub - lb) / 2;
+
+      if (vals[mid] == i) {
+        return mid;
+      } else if (vals[mid] > i) {
+        ub = mid;
+      } else {
+        lb = mid + 1;
+      } // endif
+    } // while
+    throw new Exception("Value not found");
   } // iterativeBinarySearch
 
   /**
@@ -81,11 +95,11 @@ public class SearchUtils {
    *       values[index] == val
    */
   static int rbsHelper(int[] vals, int lb, int ub, int i) throws Exception {
-    int mid = ((lb + ub) / 2);
+    int mid = lb + (ub - lb) / 2;
 
-    if( lb > ub){
-      throw new Exception(" Lower bound can't be bigger than upper bound");
-    } //endif
+    if (lb > ub) {
+      throw new Exception("Value not found");
+    } // endif
 
     if (vals[mid] == i) {
       return mid;
@@ -94,14 +108,14 @@ public class SearchUtils {
         throw new Exception("Value not found");
       } else {
         return rbsHelper(vals, lb, mid, i);
-      } //endif
+      } // endif
     } else {
       if (mid + 1 >= vals.length) {
         throw new Exception("Value not found");
       } else {
-      return rbsHelper(vals, mid + 1, ub, i);
-      } //endif
-    } //endif
+        return rbsHelper(vals, mid + 1, ub, i);
+      } // endif
+    } // endif
   } // rbsHelper
 
   // +----------------+----------------------------------------------
@@ -111,27 +125,27 @@ public class SearchUtils {
   /**
    * Search values for the first value for which pred holds.
    *
-   * @param <T> 
-   *   The type of values we're examining
+   * @param <T>
+   *               The type of values we're examining
    * @param values
-   *   The iterable we're searching
+   *               The iterable we're searching
    * @param pred
-   *   The predicate used to determine whether or not the value is
-   *   acceptable
+   *               The predicate used to determine whether or not the value is
+   *               acceptable
    * 
    * @return the first mathcing element.
    *
    * @throws Exception
-   *   If no matching value is found.
+   *                   If no matching value is found.
    */
-  public static <T> T search(Iterable<T> values, Predicate<? super T> pred) throws Exception { 
-    for(T i: values) {
-      if(pred.test(i)){
+  public static <T> T search(Iterable<T> values, Predicate<? super T> pred) throws Exception {
+    for (T i : values) {
+      if (pred.test(i)) {
         return i;
       }
     }
-      throw new Exception("No value found");    
-    }
+    throw new Exception("No value found");
+  }
 
   /**
    * Search for val in values, return the index of an instance of val.
@@ -151,8 +165,8 @@ public class SearchUtils {
    *       values[index] == val
    */
   public static int binarySearch(int[] vals, int i) throws Exception {
-    // return interativeBinarySearch(vals, i);
-    return recursiveBinarySearch(vals, i);
+    return iterativeBinarySearch(vals, i);
+    // return recursiveBinarySearch(vals, i);
   } // binarySearch
 
 } // class SearchUtils
